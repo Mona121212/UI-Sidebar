@@ -1,7 +1,6 @@
 // pages/agent-create.tsx
 import { Breadcrumb, BreadcrumbItem } from "@/components/ui/breadcrumb"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
@@ -21,34 +20,24 @@ import {
 export default function AgentCreatePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 面包屑 */}
-      <Breadcrumb className="mb-6">
-        <BreadcrumbItem>Pointer</BreadcrumbItem>
-        <BreadcrumbItem>Agents</BreadcrumbItem>
-        <BreadcrumbItem>Create</BreadcrumbItem>
-      </Breadcrumb>
-      {/* 标题与描述 */}
+      
+      {/* Breadcrumb items */}
+      <div className="flex items-center text-sm mb-6">
+
+          <BreadcrumbItem>Pointer</BreadcrumbItem>
+          <span className="mx-2 text-muted-foreground">&gt;</span>
+          <BreadcrumbItem>Agents</BreadcrumbItem>
+          <span className="mx-2 text-muted-foreground">&gt;</span>
+          <BreadcrumbItem>General</BreadcrumbItem>
+        </div>
+      
+      {/* Title and description */}
       <h1 className="text-2xl font-bold mb-1">Create New Agent</h1>
       <div className="text-sm text-muted-foreground mb-8">Customize your agent&apos;s behavior. Contextual applies sensible defaults for all non-required settings, but we recommend configuring at least the Base settings to match your preferences.</div>
       
-      {/* Tabs 区域 */}
+      {/* Tabs  */}
       <Tabs defaultValue="general" className="flex gap-8">
-        {/* General Section */}
-        {/* <div>
-           <div className="min-w-[220px] flex flex-col gap-8 pt-2">
-          <TabsList className="flex flex-col items-start gap-1 w-full bg-transparent p-0">
-            <TabsTrigger value="general" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground">
-              <Settings2 className="w-4 h-4" />
-              General
-            </TabsTrigger>
-            <TabsTrigger value="datastores" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground">
-              <Database className="w-4 h-4" />
-              Datastores
-            </TabsTrigger>
-          </TabsList>
-        </div> */}
-
-                <div>
+        <div>
            <div className="min-w-[220px] flex flex-col gap-8 pt-2">
           <TabsList className="flex flex-col items-start gap-1 w-full bg-transparent p-0">
             <TabsTrigger value="general" >
@@ -61,30 +50,13 @@ export default function AgentCreatePage() {
             </TabsTrigger>
           </TabsList>
         </div>
-      
-       
-
-      {/* Based Section */}
-      {/* <div>
-        <div className="text-xs text-muted-foreground uppercase mb-2">Base</div>
-        <TabsList className="flex flex-col items-start gap-1 w-full bg-transparent p-0">
-          <TabsTrigger value="system-prompts" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground">
-            <MessageSquare className="w-4 h-4" />
-            System Prompts
-          </TabsTrigger>
-          <TabsTrigger value="query-understanding" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground">
-            <Brain className="w-4 h-4" />
-            Query Understanding
-          </TabsTrigger>
-        </TabsList>
-      </div> */}
     
       {/* Advanced Section */}
-      <div className="mt-200">
-        <div className="text-xs text-muted-foreground uppercase mb-8 mt-10">BASE</div>
+      <div className="mt-200"  style={{ marginTop: '45px' }}>
+        <div className="text-xs text-muted-foreground uppercase mb-2 mt-8 ml-3">BASE</div>
         
-        <TabsList className="flex flex-col items-start gap-5 w-full bg-transparent p-0">
-          <TabsTrigger value="system-prompts" >
+        <TabsList className="flex flex-col items-start gap-2 w-full bg-transparent p-0">
+          <TabsTrigger value="system-prompts" style={{ marginTop: '320px' }}>
             <MessageSquare className="w-4 h-4" />
             System Prompts
           </TabsTrigger>
@@ -92,7 +64,7 @@ export default function AgentCreatePage() {
             <Brain className="w-4 h-4" />
             Query Understanding
           </TabsTrigger>
-          <div className="text-xs text-muted-foreground uppercase mb-8 mt-10">BASE</div>
+          <div className="text-xs text-muted-foreground uppercase mb-2 mt-8 ml-3">ADVANCE</div>
           <TabsTrigger value="query-reformulation" >
             <Settings2 className="w-4 h-4" />
             Query Reformulation
@@ -118,42 +90,10 @@ export default function AgentCreatePage() {
             User Experience
           </TabsTrigger>
         </TabsList>
-
-        
-      
-        
-      
-        
-        {/* <TabsList className="flex flex-col items-start gap-1 w-full bg-transparent p-0">
-          <TabsTrigger value="query-reformulation" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Settings2 className="w-4 h-4" />
-            Query Reformulation
-          </TabsTrigger>
-          <TabsTrigger value="retrieval" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Search className="w-4 h-4" />
-            Retrieval
-          </TabsTrigger>
-          <TabsTrigger value="rerank" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Layers className="w-4 h-4" />
-            Rerank
-          </TabsTrigger>
-          <TabsTrigger value="filter" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Filter className="w-4 h-4" />
-            Filter
-          </TabsTrigger>
-          <TabsTrigger value="generation" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Sparkles className="w-4 h-4" />
-            Generation
-          </TabsTrigger>
-          <TabsTrigger value="user-experience" className="w-full justify-start gap-2 text-muted-foreground data-[state=active]:text-foreground mb-5 mt-10">
-            <Users className="w-4 h-4" />
-            User Experience
-          </TabsTrigger>
-        </TabsList> */}
       </div>
     </div>
 
-        {/* 右侧内容区 */}
+        {/* right side content */}
         <div className="flex-1">
           <TabsContent value="general" className="p-0">
             <div className="bg-muted rounded-xl p-8">
@@ -170,14 +110,15 @@ export default function AgentCreatePage() {
                   <Textarea id="description" placeholder="A short description of the agent" />
                   <div className="text-xs text-muted-foreground mt-1">A short description of the agent. This will be displayed in the agents list.</div>
                 </div>
-                <div className="flex justify-end gap-2 pt-4">
-                  <Button variant="outline" type="button">Cancel</Button>
-                  <Button type="submit">Next</Button>
-                </div>
+                
               </form>
             </div>
           </TabsContent>
           {/* 其他 TabsContent 可按需添加 */}
+          <div className="flex justify-end gap-2 pt-4">
+                  <Button variant="outline" type="button">Cancel</Button>
+                  <Button type="submit">Next</Button>
+          </div>
         </div>
       </Tabs>
     </div>
